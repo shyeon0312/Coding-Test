@@ -1,14 +1,20 @@
 # 2750 수 정렬하기
 import sys
 
+input = sys.stdin.readline
 n = int(input())
-num_list = []
-
+nbrs = []
 for _ in range(n):
-    x = int(input())
-    num_list.append(x)
+    nbrs.append(int(input()))
 
-# print(num_list)
-num_list = sorted(num_list)
-for i in num_list:
-    print(i)
+def bubble_sort(x):
+    for i in range(n):
+        for j in range(i, n):
+            if x[i] > x[j]:
+                temp = x[i]
+                x[i] = x[j]
+                x[j] = temp
+    return x
+
+nbrs = bubble_sort(nbrs)
+print(*nbrs, sep='\n')
